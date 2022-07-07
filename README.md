@@ -4,9 +4,11 @@
 1) Para realizar la prueba de funcionalidad se opto por el uso de POSTMAN.
     Enlace al archivo para importar en tu workspace de postman y hacer las pruebas: https://www.getpostman.com/collections/8d530a60a1cf157e0a8c
 
+    Actualizacion 07/07/2022: Se añadio la parte de frontend en "public" y ya se puede testear la interacción del usuario. Falta agregar un panel de administrador para probar de este modo las rutas a las que solo puede acceder un admin.
+
 2) En los métodos POST, PUT y DELETE de la ruta /api/productos, se incorporo un middleware de autorización según el rol del usuario. Por lo que es necesario pasar un header "rol" con value "admin" para que la API responda correctamente y no devuelva un error de autorización.
 
-3) link a deploy en Glitch: https://endurable-palm-furniture.glitch.me/
+3) link a deploy en Glitch: https://fan-workable-bolt.glitch.me/
 
 4) Dejo ejemplos de productos para pegar en el "products.json" en caso de querer hacer varias pruebas sin estar creando nuevos productos haciendo post desde postman.
 
@@ -29,7 +31,7 @@
     "foto": "https://cdn1.iconfinder.com/data/icons/clothes-outfit-line-shop-aholic/512/Jeans-256.png",
     "precio": 7900,
     "stock": 7
-} {
+}, {
     "id": 3,
     "timestamp": 159478265987,
     "nombre": "Chaqueta",
@@ -38,7 +40,7 @@
     "foto": "https://cdn1.iconfinder.com/data/icons/clothes-outfit-line-shop-aholic/512/Jacket-256.png",
     "precio": 8500,
     "stock": 14
-} {
+}, {
     "id": 4,
     "timestamp": 159478265987,
     "nombre": "Zapatillas",
