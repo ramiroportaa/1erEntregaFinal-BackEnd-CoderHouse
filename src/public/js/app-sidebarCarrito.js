@@ -42,30 +42,31 @@ async function escribirProductosCarrito () {
 
 async function renderSidebarCart() {
     await getProductsCartFromAPI(idCart);
-    escribirProductosCarrito();
-     //Sidebar del carrito.
-    const navCarrito = document.getElementById("nav-carrito");
-    //Escribo por DOM la cantidad de productos en el carrito.
+    await escribirProductosCarrito();
+     //Escribo por DOM la cantidad de productos en el carrito.
     navCarrito.innerHTML = `Carrito (${cart.length})`;
-    //Mostramos la orden cada vez que hacemos click en el carrito...
-    navCarrito.addEventListener("click", async () => {
-        barraCarritoListaItems.innerHTML = "";
-        await escribirProductosCarrito();
-        barraCarritoContainer.classList.toggle("barraCarrito-active");
-    })
-    //Evento para abrir y cerrar SideBar del carrito.
-    const barraCarritoContainer = document.getElementById("barraCarrito-container");
-    const barraCarrito = document.getElementById("barraCarrito");
-    const barraCarritoCerrar = document.getElementById("barraCarrito-cerrar");
-    barraCarritoCerrar.addEventListener("click", ()=>{
-        barraCarritoContainer.classList.toggle("barraCarrito-active");
-    });
-    barraCarritoContainer.addEventListener("click", ()=>{
-        barraCarritoContainer.classList.toggle("barraCarrito-active");
-    });
-    barraCarrito.addEventListener("click", (e)=>{
-        e.stopPropagation();
-    });
 }
+
+ //Sidebar del carrito.
+ const navCarrito = document.getElementById("nav-carrito");
+ //Mostramos la orden cada vez que hacemos click en el carrito...
+ navCarrito.addEventListener("click", async () => {
+     await escribirProductosCarrito();
+     barraCarritoContainer.classList.toggle("barraCarrito-active");
+})
+
+//Evento para abrir y cerrar SideBar del carrito.
+const barraCarritoContainer = document.getElementById("barraCarrito-container");
+const barraCarrito = document.getElementById("barraCarrito");
+const barraCarritoCerrar = document.getElementById("barraCarrito-cerrar");
+barraCarritoCerrar.addEventListener("click", ()=>{
+    barraCarritoContainer.classList.toggle("barraCarrito-active");
+});
+barraCarritoContainer.addEventListener("click", ()=>{
+    barraCarritoContainer.classList.toggle("barraCarrito-active");
+});
+barraCarrito.addEventListener("click", (e)=>{
+    e.stopPropagation();
+});
 
 renderSidebarCart();

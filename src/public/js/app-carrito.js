@@ -5,7 +5,7 @@ const renderCart = async()=>{
     await getProductsCartFromAPI(idCart);
     let total = 0;
     //Si el array de productos en la ultima orden se encuentra vacio...
-    if (!cart.length){
+    if (!cart?.length){
         $("#productos").append(`<p>EL CARRITO ESTA VACIO</p>`)
         $("#finalizarCompra").css({
             display: "none"

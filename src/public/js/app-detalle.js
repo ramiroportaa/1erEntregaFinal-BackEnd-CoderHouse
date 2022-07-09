@@ -51,6 +51,7 @@ const renderDetalle = (producto)=>{
     document.querySelector(`#agregarProducto-${producto.id}-detalle`).addEventListener("click", async ()=>{
       const cantidad = parseInt(document.querySelector(`#cantidad-detalle-${producto.id}`).value);
       await addProductCartAPI(idCart, Number(producto.id), cantidad);
+      await renderSidebarCart();
   })
 }
 
