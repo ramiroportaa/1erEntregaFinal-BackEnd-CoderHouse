@@ -1,7 +1,7 @@
 const rol = sessionStorage.getItem("rol");
 
 //Creamos un array para agrupar todos los productos que se ofrecen.
-const productos = []
+let productos = []
 
 //Creamos un array para agrupar todos los productos que se añaden al carrito.
 let cart = [];
@@ -14,9 +14,7 @@ let idCart = JSON.parse(sessionStorage.getItem("idCart")) || 0;
 const getProductsFromAPI = async ()=>{
     let res = await fetch("/api/productos");
     const data = await res.json();
-    data.products.forEach(prod =>{
-        productos.push(prod);
-    })
+    productos = data.products;
 }
         //Obtener un solo producto por su ID.
 const getProductByIdFromAPI = async (id)=>{
@@ -35,7 +33,7 @@ const updateProductAPI = async (id, obj)=>{
     });
     if (res.status != 204){
         const data = await res.json();
-        return alertaInfo(data?.error);
+        return alertaInfo(data?.descripcion);
     }
     alertaInfo("producto actualizado exitosamente");
 }
@@ -49,7 +47,7 @@ const addProductAPI = async (obj)=>{
     });
     if (res.status != 201){
         const data = await res.json();
-        return alertaInfo(data?.error);
+        return alertaInfo(data?.descripcion);
     } 
     alertaInfo("Producto creado exitosamente");
 }
@@ -61,7 +59,7 @@ const deleteProductAPI = async (id)=>{
     });
     if (res.status != 204){
         const data = await res.json();
-        return alertaInfo(data?.error);
+        return alertaInfo(data?.descripcion);
     }
     alertaInfo("Producto eliminado exitosamente");
 }

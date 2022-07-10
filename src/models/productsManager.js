@@ -34,8 +34,8 @@ class productsManager {
                 descripcion: productData.descripcion || null,
                 codigo: productData.codigo || null,
                 foto: productData.foto || null,
-                precio: productData.precio || null,
-                stock: productData.stock || null
+                precio: Number(productData.precio) || null,
+                stock: Number(productData.stock) || null
             }
             this.products.push(product);
             await fileManager.write("products.json", this.products);
@@ -58,8 +58,8 @@ class productsManager {
                         descripcion: productNewData.descripcion || prod.descripcion,
                         codigo: productNewData.codigo || prod.codigo,
                         foto: productNewData.foto || prod.foto,
-                        precio: productNewData.precio || prod.precio,
-                        stock: productNewData.stock || prod.stock
+                        precio: Number(productNewData.precio) || prod.precio,
+                        stock: Number(productNewData.stock) || prod.stock
                     }
                     return product
                 } else{
