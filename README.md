@@ -8,7 +8,7 @@
 
 2) En los métodos POST, PUT y DELETE de la ruta /api/productos, se incorporo un middleware de autorización según el rol del usuario. Por lo que es necesario pasar un header "rol" con value "admin" para que la API responda correctamente y no devuelva un error de autorización.
 
-3) link a deploy en Glitch: https://fan-workable-bolt.glitch.me/
+3) link a deploy en Glitch: https://evanescent-dramatic-bathroom.glitch.me/
 
 4) Dejo ejemplos de productos para pegar en el "products.json" en caso de querer hacer varias pruebas sin estar creando nuevos productos haciendo post desde postman.
 
